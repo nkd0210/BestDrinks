@@ -1,0 +1,36 @@
+import React from 'react'
+import styled from 'styled-components'
+
+
+const Wrapper = styled.div`
+    min-height: 100vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        width: 90vw;
+        max-width: 600px;
+        display: block;
+        margin-bottom: 2rem;
+        margin-top: -3rem;
+    }
+
+    h3 {
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        line-height: 1.5;
+        margin: 0.5rem 0 1rem 0;
+        color: var(--grey-500);
+    }
+
+    a {
+        text-transform: capitalize;
+        color: var(--primary-500);
+    }
+
+`
+
+export default Wrapper;
