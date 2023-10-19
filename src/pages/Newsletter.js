@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, redirect } from 'react-router-dom';
+import { Form, redirect, useNavigation } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -27,6 +27,9 @@ export const action = async ({ request }) => {
 
 
 function Newsletter() {
+    const navigation = useNavigation();
+    const isSubmitting = navigation.state === 'submitting';
+
     return (
         <Form className='form' method='POST'>
             <h4 style={{ textAlign: 'center', marginBottom: '2rem' }}>Our newsletter</h4>
@@ -51,8 +54,8 @@ function Newsletter() {
                 <input type='text' className='form-input' name='email' id='email' defaultValue="test@test.com" />
             </div>
 
-            <button type='submit' className='btn btn-block' style={{ marginTop: '1rem' }}>
-                submit
+            <button type='submit' className='btn btn-block' style={{ marginTop: '1rem' }} disabled={isSubmitting}>
+                {isSubmitting ? 'Submitting' : 'submit'}
             </button>
         </Form>
     )
